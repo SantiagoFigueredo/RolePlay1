@@ -20,4 +20,7 @@ public class Personaje
     {
         this.Salud -= dano;
     }
+    public void{
+        
+    }
 }
