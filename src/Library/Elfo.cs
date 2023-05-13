@@ -8,6 +8,6 @@ public class Elfo : Personaje
     // Método adicional de Elfo para curar a otro personaje
     public void Curar(Personaje personaje)
     {
-        personaje.RestaurarVida();
+        personaje.RestaurarVida(personaje);
     }
 }

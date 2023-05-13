@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Personaje
 {
     // Atributos
@@ -28,7 +30,7 @@ public class Personaje
 
     public int CalcularValorTotalAtaque()
     {
-        int totalAtaque = ataque;
+        int totalAtaque = Ataque;
         foreach (Item item in Items)
         {
             totalAtaque += item.Ataque;
@@ -38,12 +40,24 @@ public class Personaje
 
     public int CalcularValorTotalDefensa()
     {
-        int totalDefensa = vida;
+        int totalDefensa = Vida;
         foreach (Item item in Items)
         {
             totalDefensa += item.Defensa;
         }
         return totalDefensa;
+    }
+
+    public void Atacar(Personaje objetivo)
+    {
+        int ataqueTotal = CalcularValorTotalAtaque();
+        int defensaObjetivo = objetivo.CalcularValorTotalDefensa();
+
+        int danio = ataqueTotal - defensaObjetivo;
+        if (danio > 0)
+        {
+            objetivo.ReducirVida(danio);
+        }
     }
 
     public void ReducirVida(int cantidad)
@@ -55,9 +69,9 @@ public class Personaje
         }
     }
 
-    public void RestaurarVida()
+    public void RestaurarVida(Personaje objetivo)
     {
         // Restaurar la vida a su valor inicial (por ejemplo, vida = 100)
-        Vida = 100;
+        Vida = (int)(objetivo.Vida + 100);
     }
 }
