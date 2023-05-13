@@ -1,26 +1,63 @@
 public class Personaje
 {
+    // Atributos
     public string Nombre { get; set; }
-    public string Raza { get; set; }
-    public int Nivel { get; set; }
-    public int Salud { get; set; }
+    public int Vida { get; set; }
     public int Ataque { get; set; }
-    public string Item { get; set; }
+    public List<Item> Items { get; set; }
 
-    public void Atacar(Personaje otroPersonaje)
+    // Constructor
+    public Personaje(string nombre, int vida, int ataque)
     {
-        int dano = this.Ataque - otroPersonaje.Item.Defensa;
-        if (dano > 0)
+        Nombre = nombre;
+        Vida = vida;
+        Ataque = ataque;
+        Items = new List<Item>();
+    }
+
+    // Métodos
+    public void AgregarItem(Item item)
+    {
+        Items.Add(item);
+    }
+
+    public void QuitarItem(Item item)
+    {
+        Items.Remove(item);
+    }
+
+    public int CalcularValorTotalAtaque()
+    {
+        int totalAtaque = ataque;
+        foreach (Item item in Items)
         {
-            otroPersonaje.Salud -= dano;
+            totalAtaque += item.Ataque;
+        }
+        return totalAtaque;
+    }
+
+    public int CalcularValorTotalDefensa()
+    {
+        int totalDefensa = vida;
+        foreach (Item item in Items)
+        {
+            totalDefensa += item.Defensa;
+        }
+        return totalDefensa;
+    }
+
+    public void ReducirVida(int cantidad)
+    {
+        Vida -= cantidad;
+        if (Vida < 0)
+        {
+            Vida = 0;
         }
     }
 
-    public void Defender(int dano)
+    public void RestaurarVida()
     {
-        this.Salud -= dano;
-    }
-    public void{
-        
+        // Restaurar la vida a su valor inicial (por ejemplo, vida = 100)
+        Vida = 100;
     }
 }
