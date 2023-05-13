@@ -5,16 +5,23 @@ class Program
     static void Main(string[] args)
     {
         // Creación de personajes y elementos
-        Personaje mago = new Mago("Gandalf", 100, 50, "Bastón Mágico");
-        Elfo elfo = new Elfo("Legolas", 80, 10);
-        Enano enano = new Enano("Gimli", 120, 42, 50);
-        Item bastonMagico = new Item("Bastón Mágico", "Arma", 50, 50);
-        Item armadura = new Item("Armadura", "Defensa", 0, 50);
+        Mago mago = new Mago("Gandalf", 100, 50, "Bastón Mágico");//Mica
+        Elfo elfo = new Elfo("Legolas", 80, 10); //Rodri
+        Enano enano = new Enano("Teemo", 120, 42, 60);//Santi
+        Item bastonMagico = new Item("Bastón Mágico", "Arma Magica", 50, 50);
+        Item cervatana = new Item("Cervatana", "Arma", 50, 0);//Santi
+        Item cota = new Item("Cota de Espinas", "Ropaje", 0, 40);//Santi
+        Item armadura = new Item("Armadura", "Armadura", 0, 50);
+        //Item armadura = new Item("Armadura", "Defensa", 0, 50);
+        //Item armadura = new Item("Armadura", "Defensa", 0, 50);
+        //Item armadura = new Item("Armadura", "Defensa", 0, 50);
 
         // Asignar elementos a los personajes
         mago.AgregarItem(bastonMagico);
+        enano.AgregarItem(cota);
+        enano.AgregarItem(cervatana);
         elfo.AgregarItem(armadura);
-        enano.AgregarItem(armadura);
+        
 
         // Obtener valor total de ataque de un personaje
         int ataqueTotalMago = mago.CalcularValorTotalAtaque();
