@@ -1,19 +1,26 @@
-
-public class Mago
+public class Mago : Personaje
 {
-    public string BastonMagico { get ; }
-    public string LibroDeHechizos { get ; }
-    public static string LanzarHechizo()
+    // Atributos específicos del Mago
+    public string BastonMagico { get; set; }
+    public LibroDeHechizos LibroHechizos { get; set; }
+
+    // Constructor
+    public Mago(string nombre, int vida, int ataque, string bastonMagico) : base(nombre, vida, ataque)
     {
-        
+        BastonMagico = bastonMagico;
+        LibroHechizos = new LibroDeHechizos();
     }
-    public static string EstudiarLibro()
+
+    // Método para lanzar un hechizo del libro de hechizos
+    public void LanzarHechizo(Hechizo hechizo, Personaje personaje)
     {
-        
+        // Implementación a determinar
+        // Aquí se podría definir la lógica para lanzar el hechizo contra el personaje
     }
-    public Mago (string bastonMagico, string libroDeHechizos)
+
+    // Método para estudiar un nuevo hechizo y agregarlo al libro de hechizos
+    public void EstudiarHechizo(Hechizo hechizo)
     {
-        this.BastonMagico = bastonMagico;
-        this.LibroDeHechizos = libroDeHechizos;
+        LibroHechizos.AgregarHechizo(hechizo);
     }
 }
