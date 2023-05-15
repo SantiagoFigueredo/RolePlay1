@@ -40,6 +40,11 @@ class Program
         // Curar a un personaje
         elfo.Curar(enano);
 
+        //Verificar si el mago tiene un hechizo en su libro de hechizos 
+        Hechizo Fuego = new Hechizo("Bola de Fuego", 100);
+        mago.EstudiarHechizo(Fuego);
+        mago.LanzarHechizo(Fuego, enano);
+
         // Devolver los resultados
         string resultados = "Acciones realizadas:\n\n" +
                             $"Personaje 1: {mago.Nombre}\n" +

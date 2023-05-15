@@ -1,26 +1,33 @@
+using System;
+
 public class Mago : Personaje
 {
-    // Atributos específicos del Mago
-    public string BastonMagico { get; set; }
-    public LibroDeHechizos LibroHechizos { get; set; }
+    // Atributos adicionales de Mago
+    public LibroDeHechizos LibroDeHechizos { get; set; }
 
     // Constructor
-    public Mago(string nombre, int vida, int ataque, string bastonMagico) : base(nombre, vida, ataque)
+    public Mago(string nombre, int vida, int ataque, string nombreLibro) : base(nombre, vida, ataque)
     {
-        BastonMagico = bastonMagico;
-        LibroHechizos = new LibroDeHechizos();
+        LibroDeHechizos = new LibroDeHechizos(nombreLibro);
     }
 
-    // Método para lanzar un hechizo del libro de hechizos
-    public void LanzarHechizo(Hechizo hechizo, Personaje personaje)
+    // Método para lanzar un hechizo a otro personaje
+    public void LanzarHechizo(Hechizo hechizo, Personaje objetivo)
     {
-        // Implementación a determinar
-        // Aquí se podría definir la lógica para lanzar el hechizo contra el personaje
+        if (LibroDeHechizos.ContieneHechizo(hechizo))
+        {
+            hechizo.LanzarHechizo(objetivo);
+        }
+        else
+        {
+            Console.WriteLine($"El mago {Nombre} no puede lanzar el hechizo {hechizo.Nombre}.");
+        }
     }
 
     // Método para estudiar un nuevo hechizo y agregarlo al libro de hechizos
     public void EstudiarHechizo(Hechizo hechizo)
     {
-        LibroHechizos.AgregarHechizo(hechizo);
+        LibroDeHechizos.AgregarHechizo(hechizo);
+        Console.WriteLine($"El mago {Nombre} ha estudiado el hechizo {hechizo.Nombre}.");
     }
 }

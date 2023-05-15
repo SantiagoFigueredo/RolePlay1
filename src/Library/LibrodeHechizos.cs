@@ -4,11 +4,13 @@ public class LibroDeHechizos
 {
     // Atributos
     public List<Hechizo> Hechizos { get; set; }
+    public string Nombre { get; set; }
 
     // Constructor
-    public LibroDeHechizos()
+    public LibroDeHechizos(string nombre)
     {
         Hechizos = new List<Hechizo>();
+        Nombre = nombre;
     }
 
     // Método para agregar un hechizo al libro
@@ -21,6 +23,11 @@ public class LibroDeHechizos
     public void EliminarHechizo(Hechizo hechizo)
     {
         Hechizos.Remove(hechizo);
+    }
+
+    public bool ContieneHechizo(Hechizo hechizo)
+    {
+        return Hechizos.Contains(hechizo);
     }
 
     // Método para obtener la lista de hechizos del libro
