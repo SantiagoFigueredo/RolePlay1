@@ -11,10 +11,10 @@ class Program
         Item bastonMagico = new Item("Bastón Mágico", "Arma Magica", 50, 50);
         Item cervatana = new Item("Cervatana", "Arma", 50, 0);//Santi
         Item cota = new Item("Cota de Espinas", "Ropaje", 0, 40);//Santi
-        Item armadura = new Item("Armadura", "Armadura", 0, 50);
-        //Item armadura = new Item("Armadura", "Defensa", 0, 50);
-        //Item armadura = new Item("Armadura", "Defensa", 0, 50);
-        //Item armadura = new Item("Armadura", "Defensa", 0, 50);
+        Item armadura = new Item("Armadura", "Ropaje", 0, 50);//Rodri
+        Item tunica = new Item("Tunica", "Ropaje", 0, 50);//Mica
+        Item arco = new Item("Arco", "Arma", 0, 50);//Rodri
+
 
         // Asignar elementos a los personajes
         mago.AgregarItem(bastonMagico);
