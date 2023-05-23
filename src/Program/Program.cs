@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         // Creación de personajes y elementos
-        Mago mago = new Mago("Gandalf", 100, 50, "Bastón Mágico");//Mica
+        Mago mago = new Mago("Gandalf", 100, 50, new LibroDeHechizos("Grimorio"));//Mica
         Elfo elfo = new Elfo("Legolas", 80, 10); //Rodri
         Enano enano = new Enano("Teemo", 120, 42, 60);//Santi
         Item bastonMagico = new Item("Bastón Mágico", "Arma Magica", 50, 50);

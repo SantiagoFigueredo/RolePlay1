@@ -3,8 +3,8 @@ using System;
 public class Hechizo
 {
     // Atributos
-    public string Nombre { get; set; }
-    public int Poder { get; set; }
+    public string Nombre { get; }
+    public int Poder { get; }
 
     // Constructor
     public Hechizo(string nombre, int poder)
@@ -20,3 +20,4 @@ public class Hechizo
         Console.WriteLine($"El hechizo {Nombre} ha sido lanzado contra {objetivo.Nombre}. ¡Ha perdido {Poder} puntos de vida!");
     }
 }
+

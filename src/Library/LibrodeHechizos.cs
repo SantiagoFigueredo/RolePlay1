@@ -4,7 +4,7 @@ public class LibroDeHechizos
 {
     // Atributos
     public List<Hechizo> Hechizos { get; set; }
-    public string Nombre { get; set; }
+    public string Nombre { get; }
 
     // Constructor
     public LibroDeHechizos(string nombre)

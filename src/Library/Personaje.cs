@@ -1,15 +1,13 @@
 using System.Collections.Generic;
 
-public class Personaje
+public abstract class Personaje
 {
-    // Atributos
-    public string Nombre { get; set; }
-    public int Vida { get; set; }
-    public int Ataque { get; set; }
-    public List<Item> Items { get; set; }
+    public string Nombre { get; private set; }
+    public int Vida { get; protected set; }
+    public int Ataque { get; private set; }
+    public List<Item> Items { get; private set; }
 
-    // Constructor
-    public Personaje(string nombre, int vida, int ataque)
+    protected Personaje(string nombre, int vida, int ataque)
     {
         Nombre = nombre;
         Vida = vida;
@@ -17,7 +15,6 @@ public class Personaje
         Items = new List<Item>();
     }
 
-    // Métodos
     public void AgregarItem(Item item)
     {
         Items.Add(item);
@@ -71,7 +68,7 @@ public class Personaje
 
     public void RestaurarVida(Personaje objetivo)
     {
-        // Restaurar la vida a su valor inicial (por ejemplo, vida = 100)
-        Vida = (int)(objetivo.Vida + 100);
+        Vida = objetivo.Vida + 100;
     }
 }
+

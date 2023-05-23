@@ -6,9 +6,9 @@ public class Mago : Personaje
     public LibroDeHechizos LibroDeHechizos { get; set; }
 
     // Constructor
-    public Mago(string nombre, int vida, int ataque, string nombreLibro) : base(nombre, vida, ataque)
+    public Mago(string nombre, int vida, int ataque, LibroDeHechizos libroDeHechizos) : base(nombre, vida, ataque)
     {
-        LibroDeHechizos = new LibroDeHechizos(nombreLibro);
+        LibroDeHechizos = libroDeHechizos;
     }
 
     // Método para lanzar un hechizo a otro personaje

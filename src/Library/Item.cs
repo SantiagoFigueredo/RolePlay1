@@ -1,10 +1,10 @@
 public class Item
 {
     // Atributos
-    public string Nombre { get; set; }
-    public string Tipo { get; set; }
-    public int Ataque { get; set; }
-    public int Defensa { get; set; }
+    public string Nombre { get; }
+    public string Tipo { get; }
+    public int Ataque { get; }
+    public int Defensa { get; }
 
     // Constructor
     public Item(string nombre, string tipo, int ataque, int defensa)
