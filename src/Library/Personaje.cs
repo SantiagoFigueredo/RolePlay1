@@ -6,6 +6,7 @@ public abstract class Personaje
     public int Vida { get; protected set; }
     public int Ataque { get; private set; }
     public List<Item> Items { get; private set; }
+    public int PuntosVictoria { get; private set; }  // Nueva propiedad PuntosVictoria
 
     protected Personaje(string nombre, int vida, int ataque)
     {
@@ -13,6 +14,7 @@ public abstract class Personaje
         Vida = vida;
         Ataque = ataque;
         Items = new List<Item>();
+        PuntosVictoria = 0;  // Inicialmente los puntos de victoria son 0
     }
 
     public void AgregarItem(Item item)
@@ -45,16 +47,30 @@ public abstract class Personaje
         return totalDefensa;
     }
 
-    public void Atacar(Personaje objetivo)
+    public void Atacar(Personaje personaje, Objetivo objetivo)
     {
         int ataqueTotal = CalcularValorTotalAtaque();
         int defensaObjetivo = objetivo.CalcularValorTotalDefensa();
 
         int danio = ataqueTotal - defensaObjetivo;
-        if (danio > 0)
+        
+        objetivo.ReducirVida(danio);
+
+        if (objetivo.Vida <= 0)
         {
-            objetivo.ReducirVida(danio);
+            AsignarPuntosVictoria(personaje);
+            ((Enemigo)objetivo).Morir();
         }
+    }
+
+    public void AgregarPuntosVictoria(int cantidad)  // Nuevo método para agregar puntos de victoria
+    {
+        PuntosVictoria += cantidad;
+    }
+
+    public void AsignarPuntosVictoria(Personaje personaje)
+    {
+        personaje.AgregarPuntosVictoria(ValorPuntosVictoria);
     }
 
     public void ReducirVida(int cantidad)
