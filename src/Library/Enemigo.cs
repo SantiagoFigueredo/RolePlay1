@@ -2,8 +2,7 @@ public class Enemigo : Personaje
 {
     public int ValorPuntosVictoria { get; set; }
 
-    public Enemigo(string nombre, int salud, int fuerza, int defensa, int valorPuntosVictoria)
-        : base(nombre, salud, fuerza, defensa)
+    public Enemigo(string nombre, int vida, int ataque, int valorPuntosVictoria) : base(nombre, vida, ataque)
     {
         ValorPuntosVictoria = valorPuntosVictoria;
     }
