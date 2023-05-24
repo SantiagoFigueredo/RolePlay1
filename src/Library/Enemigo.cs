@@ -7,14 +7,8 @@ public class Enemigo : Personaje
         ValorPuntosVictoria = valorPuntosVictoria;
     }
 
-    public override void Atacar(Personaje personaje)
-    {
-        // Implementación del ataque del enemigo al personaje
-        // Aquí se pueden aplicar las reglas de combate específicas para los enemigos
-    }
-
     public void Morir()
     {
-        ValorPuntosVictoria = 0
+        ValorPuntosVictoria = 0;
     }
 }

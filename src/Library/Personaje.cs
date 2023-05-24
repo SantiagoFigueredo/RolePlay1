@@ -47,19 +47,22 @@ public abstract class Personaje
         return totalDefensa;
     }
 
-    public void Atacar(Personaje personaje, Objetivo objetivo)
+    public void Atacar(Personaje objetivo)
     {
         int ataqueTotal = CalcularValorTotalAtaque();
         int defensaObjetivo = objetivo.CalcularValorTotalDefensa();
 
         int danio = ataqueTotal - defensaObjetivo;
-        
+
         objetivo.ReducirVida(danio);
 
         if (objetivo.Vida <= 0)
         {
-            AsignarPuntosVictoria(personaje);
-            ((Enemigo)objetivo).Morir();
+            AsignarPuntosVictoria(this);
+            if (objetivo is Enemigo)
+            {
+                ((Enemigo)objetivo).Morir();
+            }
         }
     }
 
@@ -70,7 +73,7 @@ public abstract class Personaje
 
     public void AsignarPuntosVictoria(Personaje personaje)
     {
-        personaje.AgregarPuntosVictoria(ValorPuntosVictoria);
+        personaje.AgregarPuntosVictoria(PuntosVictoria);
     }
 
     public void ReducirVida(int cantidad)
@@ -87,4 +90,3 @@ public abstract class Personaje
         Vida = objetivo.Vida + 100;
     }
 }
-
