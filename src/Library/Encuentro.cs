@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Encuentro
 {
     private List<Personaje> heroes;
